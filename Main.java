@@ -13,7 +13,6 @@ public class Main {
 
         int[][] matrix = new int[n][n];
         Random random = new Random();
-
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 matrix[i][j] = random.nextInt(200) - 100;
@@ -28,16 +27,18 @@ public class Main {
         }
         System.out.println("____________________");
 
-        //меняем местами стоблцы
-        /*int tmp;
-        for (int i = 0; i < n; i++) {
-            if (matrix[i][0] > matrix[i + 1][0]) {
-                tmp = matrix[i][0];
-                matrix[i][0] = matrix[i][1];
-                matrix[i][1] = tmp;
-            }
-        }*/
+        SortColumn(matrix, n);
 
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print
+                        (matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void SortColumn(int[][] matrix, int n) {
         //сортировка столбцов по строке
         int tmp;
         for (int k = 0; k < n; k++) {
@@ -52,28 +53,5 @@ public class Main {
                 }
             }
         }
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print
-                        (matrix[i][j] + "\t");
-            }
-            System.out.println();
-        }
-
-
-        /*System.arrayCopy(from, fromIndex, to, toIndex, count);
-        from - массив, который копируем;
-        to - массив в которой копируем;
-        fromIndex - индекс в массиве from начиная с которого берем элементы для копирования;
-        toIndex - индекс в массиве to начиная с которого вставляем элементы;
-        count - количество элементов которые берем из массива from и вставляем в массив to;
-        Массив to должен иметь достаточный размер, чтобы в нем уместились все копируемые элементы*/
-
-        /*Упорядочить строки (столбцы) матрицы в порядке возрастания значений
-         * элементов k-го столбца (строки)*/
-
-        // write your code here
-
     }
 }
