@@ -26,6 +26,25 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println("____________________");
+
+        //меняем местами стоблцы
+        int tmp;
+        for (int i = 0; i < n; i++) {
+            tmp = matrix[i][0];
+            matrix[i][0] = matrix[i][1];
+            matrix[i][1] = tmp;
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print
+                        (matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+
         /*System.arrayCopy(from, fromIndex, to, toIndex, count);
         from - массив, который копируем;
         to - массив в которой копируем;
