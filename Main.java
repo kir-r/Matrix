@@ -3,7 +3,11 @@ package hometask;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Random;
+
+/*Алгоритмы двумерного массива (матрицы)*/
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -45,6 +49,10 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println("____________________");
+
+        for (int l : SumElements(matrix, n))
+            System.out.println(l);
     }
 
     public static void SortColumn(int[][] matrix, int n) {
@@ -79,5 +87,31 @@ public class Main {
                 }
             }
         }
+    }
+
+    /*Найти сумму элементов матрицы, расположенных между первым и
+    вторым положительными элементами каждой строки*/
+    public static ArrayList<Integer> SumElements(int[][] matrix, int n) {
+        ArrayList<Integer> listSum = new ArrayList<>();
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            int j = 0;
+            while (matrix[i][j] < 0)
+                if (j < n - 1) {
+                    j++;
+                } else break;
+            if (j < n - 1) {
+                j++;
+            } else break;
+            while (matrix[i][j] < 0) {
+                sum += matrix[i][j];
+                if (j < n - 1) {
+                    j++;
+                } else break;
+            }
+            listSum.add(sum);
+            sum = 0;
+        }
+        return listSum;
     }
 }
