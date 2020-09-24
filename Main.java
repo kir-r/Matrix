@@ -29,11 +29,28 @@ public class Main {
         System.out.println("____________________");
 
         //меняем местами стоблцы
-        int tmp;
+        /*int tmp;
         for (int i = 0; i < n; i++) {
-            tmp = matrix[i][0];
-            matrix[i][0] = matrix[i][1];
-            matrix[i][1] = tmp;
+            if (matrix[i][0] > matrix[i + 1][0]) {
+                tmp = matrix[i][0];
+                matrix[i][0] = matrix[i][1];
+                matrix[i][1] = tmp;
+            }
+        }*/
+
+        //сортировка столбцов по строке
+        int tmp;
+        for (int k = 0; k < n; k++) {
+            for (int j = 0; j < n - 1; j++) {
+                int i = 0;
+                if (matrix[i][j] > matrix[i][j + 1]) {
+                    for (i = 0; i < n; i++) {
+                        tmp = matrix[i][j];
+                        matrix[i][j] = matrix[i][j + 1];
+                        matrix[i][j + 1] = tmp;
+                    }
+                }
+            }
         }
 
         for (int i = 0; i < n; i++) {
