@@ -28,7 +28,16 @@ public class Main {
         System.out.println("____________________");
 
         SortColumn(matrix, n);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print
+                        (matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println("____________________");
 
+        SortLine(matrix, n);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.print
@@ -49,6 +58,23 @@ public class Main {
                         tmp = matrix[i][j];
                         matrix[i][j] = matrix[i][j + 1];
                         matrix[i][j + 1] = tmp;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void SortLine(int[][] matrix, int n) {
+        //сортировка строк по столбцу
+        int tmp;
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n - 1; i++) {
+                int j = 0;
+                if (matrix[i][j] > matrix[i + 1][j]) {
+                    for (j = 0; j < n; j++) {
+                        tmp = matrix[i][j];
+                        matrix[i][j] = matrix[i + 1][j];
+                        matrix[i + 1][j] = tmp;
                     }
                 }
             }
