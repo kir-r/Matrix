@@ -3,6 +3,7 @@ package hometask;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -22,34 +23,13 @@ public class Main {
                 matrix[i][j] = random.nextInt(200) - 100;
             }
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print
-                        (matrix[i][j] + "\t");
-            }
-            System.out.println();
-        }
-        System.out.println("____________________");
+        Print(matrix, n);
 
         SortColumn(matrix, n);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print
-                        (matrix[i][j] + "\t");
-            }
-            System.out.println();
-        }
-        System.out.println("____________________");
+        Print(matrix, n);
 
         SortLine(matrix, n);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print
-                        (matrix[i][j] + "\t");
-            }
-            System.out.println();
-        }
-        System.out.println("____________________");
+        Print(matrix, n);
 
         for (int l : SumElements(matrix, n))
             System.out.println(l);
@@ -113,5 +93,16 @@ public class Main {
             sum = 0;
         }
         return listSum;
+    }
+
+    public static void Print(int[][] matrix, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print
+                        (matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println("____________________");
     }
 }
